@@ -20,7 +20,8 @@
     "start": "rollup -c -w",
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
-    "deploy": "gh-pages -d example/build"
+    "deploy": "gh-pages -d example/build",
+    "clean": "rm -rf ./dist ./example/build"
   },
   "peerDependencies": {
     "classnames": "^2.2.6",
