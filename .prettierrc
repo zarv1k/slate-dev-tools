@@ -7,7 +7,7 @@
   "bracketSpacing": false,
   "overrides": [
     {
-      "files": ["*.json", ".prettierrc", "*.xex"],
+      "files": ["*.json", ".prettierrc"],
       "options": {"parser": "json"}
     },
     {

@@ -2,12 +2,18 @@
 
 > DevTools for SlateJS
 
-[![NPM](https://img.shields.io/npm/v/@zarv1k/slate-dev-tools.svg)](https://www.npmjs.com/package/@zarv1k/slate-dev-tools) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/@zarv1k/slate-dev-tools.svg)](https://www.npmjs.com/package/@zarv1k/slate-dev-tools)
 
 ## Install
 
+yarn:
 ```bash
-npm install --save @zarv1k/slate-dev-tools
+yarn add --dev @zarv1k/slate-dev-tools
+```
+
+or npm:
+```bash
+npm install --save-dev @zarv1k/slate-dev-tools
 ```
 
 ## Usage
@@ -25,6 +31,9 @@ class Example extends React.Component {
   }
 }
 ```
+
+## TODO:
+ - [ ] add `prop-types` for vanilla JS users;
 
 ## License
 
