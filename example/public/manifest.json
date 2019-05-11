@@ -1,0 +1,8 @@
+{
+  "short_name": "@zarv1k/slate-dev-tools",
+  "name": "@zarv1k/slate-dev-tools",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
