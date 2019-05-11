@@ -1,6 +1,6 @@
 import React from 'react';
 import {Editor} from 'slate';
-// import './SlateDebugger.scss';
+import './SlateDebugger.scss';
 import SlateDevToolsContext from './devToolsContext';
 import {SlateDevToolsContextValue} from './interface';
 

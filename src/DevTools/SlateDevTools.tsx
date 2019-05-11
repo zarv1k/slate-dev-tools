@@ -12,7 +12,7 @@ import {SlateDevToolsContextValue} from './interface';
 // import theme from './react-json-tree-theme.json';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/components/prism-json.min';
-// import './SlateDevTools.scss';
+import './SlateDevTools.scss';
 import './DevToolsPrism.css';
 
 // import parseHyperscript from '../../SlateEditor/plugins/parseHyperscript';
