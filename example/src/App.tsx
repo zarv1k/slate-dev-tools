@@ -10,7 +10,7 @@ import logo from './logo.svg';
 import './App.css';
 
 const defaultValue = (index: number, useLocalStorage = true): Value => {
-  const value = localStorage.getItem(`cra:slate${index}`);
+  const value = localStorage.getItem(`@zarv1k/slate-dev-tools:editor${index}`);
   return Value.fromJSON(useLocalStorage && value ? JSON.parse(value) : doc);
 };
 
@@ -26,16 +26,21 @@ const App: React.FC = () => {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <pre>
-            <code>@zarv1k/slate-dev-tools@0.0.1</code>
-          </pre>
+          <a className="App-link" href="https://github.com/zarv1k/slate-dev-tools">
+            <pre>
+              <code>@zarv1k/slate-dev-tools@0.1.0</code>
+            </pre>
+          </a>
           <Editor
             autoFocus={true}
             value={value1}
             className="App-editor"
             placeholder="Slate Editor 1"
             onChange={({value}) => {
-              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
+              localStorage.setItem(
+                '@zarv1k/slate-dev-tools:editor1',
+                JSON.stringify(value.toJSON())
+              );
               setValue1(value);
             }}
           />
@@ -45,7 +50,10 @@ const App: React.FC = () => {
             className="App-editor"
             placeholder="Slate Editor 2"
             onChange={({value}) => {
-              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
+              localStorage.setItem(
+                '@zarv1k/slate-dev-tools:editor2',
+                JSON.stringify(value.toJSON())
+              );
               setValue2(value);
             }}
           />
@@ -55,7 +63,10 @@ const App: React.FC = () => {
             className="App-editor"
             placeholder="Slate Editor 3"
             onChange={({value}) => {
-              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
+              localStorage.setItem(
+                '@zarv1k/slate-dev-tools:editor3',
+                JSON.stringify(value.toJSON())
+              );
               setValue3(value);
             }}
           />
@@ -65,7 +76,10 @@ const App: React.FC = () => {
             className="App-editor"
             placeholder="Slate Editor 4"
             onChange={({value}) => {
-              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
+              localStorage.setItem(
+                '@zarv1k/slate-dev-tools:editor4',
+                JSON.stringify(value.toJSON())
+              );
               setValue4(value);
             }}
           />
@@ -73,10 +87,10 @@ const App: React.FC = () => {
             <button
               className="btn btn-primary"
               onClick={() => {
-                localStorage.setItem('cra:slate1', JSON.stringify(doc));
-                localStorage.setItem('cra:slate2', JSON.stringify(doc));
-                localStorage.setItem('cra:slate3', JSON.stringify(doc));
-                localStorage.setItem('cra:slate4', JSON.stringify(doc));
+                localStorage.setItem('@zarv1k/slate-dev-tools:editor1', JSON.stringify(doc));
+                localStorage.setItem('@zarv1k/slate-dev-tools:editor2', JSON.stringify(doc));
+                localStorage.setItem('@zarv1k/slate-dev-tools:editor3', JSON.stringify(doc));
+                localStorage.setItem('@zarv1k/slate-dev-tools:editor4', JSON.stringify(doc));
                 setValue1(defaultValue(1, false));
                 setValue2(defaultValue(2, false));
                 setValue3(defaultValue(3, false));

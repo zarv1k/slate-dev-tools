@@ -11,7 +11,7 @@ interface Props {
 
 class Provider extends React.Component<Props, SlateDevToolsContextValue> {
   public static defaultProps: Partial<Props> = {
-    localStorageKey: 'slate-dev-tools:'
+    localStorageKey: '@zarv1k/slate-dev-tools'
   };
   constructor(props: Props) {
     super(props);

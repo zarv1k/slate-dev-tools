@@ -1,13 +1,14 @@
 {
   "name": "@zarv1k/slate-dev-tools",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "DevTools for SlateJS",
   "author": "zarv1k",
   "license": "MIT",
-  "repository": "zarv1k/slate-dev-tools",
+  "repository": "git://github.com/zarv1k/slate-dev-tools.git",
   "main": "dist/index.js",
   "module": "dist/index.es.js",
   "jsnext:main": "dist/index.es.js",
+  "types": "dist/index.d.ts",
   "engines": {
     "node": ">=8",
     "npm": ">=5"
@@ -73,5 +74,13 @@
   },
   "files": [
     "dist"
+  ],
+  "keywords": [
+    "slate",
+    "slate-react",
+    "dev-tools",
+    "hyperscript",
+    "hyperprint",
+    "slate-dev-tools"
   ]
 }
