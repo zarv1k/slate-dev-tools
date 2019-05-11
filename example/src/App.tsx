@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import {Value, ValueJSON} from 'slate';
-import {Editor} from 'slate-react';
+import {Value} from 'slate';
+import {Editor as SlateReactEditor} from 'slate-react';
 
 import {Provider, withDevTools} from '@zarv1k/slate-dev-tools';
 import '@zarv1k/slate-dev-tools/dist/SlateDevTools.css';
@@ -9,15 +9,18 @@ import doc from './default.json';
 import logo from './logo.svg';
 import './App.css';
 
-const defaultValue = () => {
-  const value = localStorage.getItem('cra:slate');
-  return Value.fromJSON(value ? JSON.parse(value) : doc);
+const defaultValue = (index: number, useLocalStorage = true): Value => {
+  const value = localStorage.getItem(`cra:slate${index}`);
+  return Value.fromJSON(useLocalStorage && value ? JSON.parse(value) : doc);
 };
 
-const SlateEditor = withDevTools()(Editor);
+const Editor = withDevTools()(SlateReactEditor);
 
 const App: React.FC = () => {
-  const [value, setValue] = useState(defaultValue());
+  const [value1, setValue1] = useState(defaultValue(1));
+  const [value2, setValue2] = useState(defaultValue(2));
+  const [value3, setValue3] = useState(defaultValue(3));
+  const [value4, setValue4] = useState(defaultValue(4));
   return (
     <Provider>
       <div className="App">
@@ -26,26 +29,63 @@ const App: React.FC = () => {
           <pre>
             <code>@zarv1k/slate-dev-tools@0.1.0</code>
           </pre>
+          <Editor
+            autoFocus={true}
+            value={value1}
+            className="App-editor"
+            placeholder="Slate Editor 1"
+            onChange={({value}) => {
+              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
+              setValue1(value);
+            }}
+          />
+          <Editor
+            autoFocus={true}
+            value={value2}
+            className="App-editor"
+            placeholder="Slate Editor 2"
+            onChange={({value}) => {
+              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
+              setValue2(value);
+            }}
+          />
+          <Editor
+            autoFocus={true}
+            value={value3}
+            className="App-editor"
+            placeholder="Slate Editor 3"
+            onChange={({value}) => {
+              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
+              setValue3(value);
+            }}
+          />
+          <Editor
+            autoFocus={true}
+            value={value4}
+            className="App-editor"
+            placeholder="Slate Editor 4"
+            onChange={({value}) => {
+              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
+              setValue4(value);
+            }}
+          />
           <p>
             <button
               className="btn btn-primary"
               onClick={() => {
-                localStorage.setItem('cra:slate', JSON.stringify(doc));
-                setValue(Value.fromJSON(doc as ValueJSON));
+                localStorage.setItem('cra:slate1', JSON.stringify(doc));
+                localStorage.setItem('cra:slate2', JSON.stringify(doc));
+                localStorage.setItem('cra:slate3', JSON.stringify(doc));
+                localStorage.setItem('cra:slate4', JSON.stringify(doc));
+                setValue1(defaultValue(1, false));
+                setValue2(defaultValue(2, false));
+                setValue3(defaultValue(3, false));
+                setValue4(defaultValue(4, false));
               }}
             >
-              Flush storage
+              Reset
             </button>
           </p>
-          <SlateEditor
-            value={value}
-            className="App-editor"
-            placeholder="Slate is awesome"
-            onChange={({value}) => {
-              localStorage.setItem('cra:slate', JSON.stringify(value.toJSON()));
-              setValue(value);
-            }}
-          />
         </header>
       </div>
     </Provider>

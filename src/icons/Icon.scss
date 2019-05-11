@@ -1,0 +1,16 @@
+@import "../DevTools/variables";
+.i {
+  color: $font-color;
+  &.iCursor {
+    img {
+      max-height: 16px;
+      padding: 3px;
+    }
+  }
+  &.curly {
+    img {
+      max-height: 20px;
+      padding: 1px;
+    }
+  }
+}

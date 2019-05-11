@@ -2,18 +2,19 @@ import React from 'react';
 import {Editor} from 'slate';
 import classNames from 'classnames';
 import JSONTree from 'react-json-tree';
-import Icon from './Icon';
+import Icon from '../icons/Icon';
 import {default as Immutable, List} from 'immutable';
 import hyperprint from './hyperprint';
 import Prism from 'prismjs';
 import {SlateDevToolsInspect} from './constants';
 import SlateDevToolsContext from './devToolsContext';
 import {SlateDevToolsContextValue} from './interface';
-// import theme from './react-json-tree-theme.json';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/components/prism-json.min';
 import './SlateDevTools.scss';
 import './DevToolsPrism.css';
+import Bug from "../icons/other/Bug";
+import ChevronLeft from "../icons/other/ChevronLeft";
 
 // import parseHyperscript from '../../SlateEditor/plugins/parseHyperscript';
 
@@ -91,14 +92,11 @@ class SlateDevTools extends React.PureComponent<Props, State> {
       <div className={classes}>
         <div className="debug-head">
           <div className="debug-title">
-            <span>
-              <Icon name={this.props.readonly ? 'eye' : 'pencil'} />
-              {this.title()}
-            </span>
+            <span className="debug-title-mode">{this.title()}</span>
           </div>
           <div className="debug-actions">
             <button
-              title="Toggle Sync Selection (can degrade performance)"
+              title="Toggle ync JSONTree Node with Selection (it may degrade performance a lot)"
               className={classNames({
                 'toggle-sync': true,
                 active: this.state.syncJsonTree,
@@ -107,16 +105,16 @@ class SlateDevTools extends React.PureComponent<Props, State> {
               onMouseDown={this.toggleSelectionSync}
               disabled={this.context.raw}
             >
-              <Icon name="feed" />
+              <Icon name="cast" />
             </button>
-            <button title="Lock/Unlock Editor State" onMouseDown={this.toggleLockChanges}>
-              <Icon name={this.state.lockChange ? 'lock' : 'unlock-alt'} />
+            <button title="Lock/Unlock Current State" onMouseDown={this.toggleLockChanges}>
+              <Icon name={this.state.lockChange ? 'lock' : 'unlockOutline'} />
             </button>
             <button title="Toggle view (JSONTree/raw)" onMouseDown={this.toggleRaw}>
-              <Icon name={this.context.raw ? 'code' : 'indent'} />
+              <Icon name={this.context.raw ? 'curly' : 'menu2Outline'} />
             </button>
-            <button title="Console Log State" onMouseDown={this.consoleState}>
-              <Icon name="terminal" />
+            <button title="Console State" onMouseDown={this.consoleState}>
+              <Icon name="downloadOutline" />
             </button>
             <button title="Switch State" onMouseDown={this.toggleState}>
               <Icon name={this.inspectIcon()} />
@@ -128,8 +126,8 @@ class SlateDevTools extends React.PureComponent<Props, State> {
         </div>
         {this.renderRawContentState()}
         <button onMouseDown={this.toggle} className="hide-toggle">
-          <Icon name="chevron-left" />
-          <Icon name="bug" />
+          <ChevronLeft />
+          <Bug />
         </button>
       </div>
     );
@@ -140,13 +138,13 @@ class SlateDevTools extends React.PureComponent<Props, State> {
       case SlateDevToolsInspect.HYPERSCRIPT:
         return 'code';
       case SlateDevToolsInspect.SELECTION:
-        return 'location-arrow';
+        return 'iCursor';
       case SlateDevToolsInspect.LAST_CHANGE:
-        return 'exchange';
+        return 'swapOutline';
       case SlateDevToolsInspect.VALUE:
-        return 'object-group';
+        return 'cubeOutline';
       default:
-        return 'pc-payments';
+        return 'fileTextOutline';
     }
   };
   private renderRawContentState = () => {
@@ -313,7 +311,12 @@ class SlateDevTools extends React.PureComponent<Props, State> {
 
   private title() {
     const currentState = this.context.inspect;
-    return `Slate ${this.context.activeId || ''}: ${currentState}`;
+    return (
+      <span>
+        Slate <span className="slate-editor-debug-id">{this.context.activeId || ''}</span>:{' '}
+        {currentState}
+      </span>
+    );
   }
 
   private toggleRaw = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -419,19 +422,6 @@ class SlateDevTools extends React.PureComponent<Props, State> {
     const {editors, activeId} = this.context;
     return activeId ? editors[activeId] : undefined;
   }
-
-  // private getChangeSetter = (): ((change: Editor) => void) | undefined => {
-  //   const change = this.state.lockChange || this.editor;
-  //   if (!change) {
-  //     return;
-  //   }
-  //   const value = change.value;
-  //   const changeSetterPlugins = value.schema.stack.getPluginsWith('setChange');
-  //   if (changeSetterPlugins.length === 1) {
-  //     return (changeSetterPlugins[0] as DevToolsPlugin).setChange;
-  //   }
-  //   return;
-  // };
 }
 
 export default SlateDevTools;

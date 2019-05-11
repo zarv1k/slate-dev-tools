@@ -27,7 +27,7 @@
     }
     box-shadow: none;
   }
-  //z-index: 10000;
+  z-index: 10000;
   box-shadow: 0 0 6px 1px rgba(102, 102, 102, 0.6);
   display: flex;
   flex-direction: column;
@@ -52,38 +52,71 @@
     background-color: $editor-toolbar-bg-color;
     z-index: 5;
     box-shadow: 1px 1px 2px 0 rgba(102, 102, 102, 0.6);
-    line-height: 22px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    height: 22px;
     .debug-title {
-      font-size: $font-size;
-      padding-left: $base-padding / 4;
-      float: left;
+      padding-left: 10px;
+      color: $font-color;
+      .slate-editor-debug-id {
+        font-weight: bold;
+      }
+      .i {
+        width: 22px;
+        height: 22px;
+        display: inline-block;
+        vertical-align: top;
+        img {
+          opacity: 0.7;
+        }
+      }
+      .debug-title-mode {
+        line-height: 22px;
+        vertical-align: top;
+      }
+      font-size: $font-size-small;
+      white-space: nowrap;
     }
     .debug-actions {
-      float: right;
+      flex: 0 0 auto;
       button {
+        cursor: pointer;
+        padding: 0 2px;
         border: none;
-        padding: 0 $base-padding/4;
+        opacity: 0.5;
         background: none;
-        opacity: 0.6;
+        &:hover {
+          opacity: 1;
+        }
         &.toggle-sync {
           &.hide {
             display: none;
           }
           &.active {
-            color: $brand-primary;
+            opacity: 1;
           }
         }
-        .i {
-          font-size: $font-size-large;
-        }
-        &:hover {
-          opacity: 1;
+        & > span {
+          display: block;
+          width: 22px;
+          height: 22px;
         }
       }
     }
   }
 
   .hide-toggle {
+    svg {
+      width: 14px;
+      height: 14px;
+      fill: #fff;
+      &:first-child {
+        padding-right: 5px;
+      }
+    }
+    line-height: 0;
     display: none;
     padding: 0;
     position: absolute;
@@ -94,7 +127,18 @@
     background-color: #2a2f3a;
     color: #fff;
     top: 50%;
-    left: -36px;
+    left: -17px;
     z-index: 3;
+    cursor: pointer;
+    transition: left .4s;
+    margin-right: -27px;
+    &:hover {
+      left: -41px;
+      svg {
+        &:first-child {
+          width: 14px;
+        }
+      }
+    }
   }
 }
