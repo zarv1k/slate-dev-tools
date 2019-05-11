@@ -27,7 +27,7 @@ const App: React.FC = () => {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <pre>
-            <code>@zarv1k/slate-dev-tools@0.1.0</code>
+            <code>@zarv1k/slate-dev-tools@0.0.1</code>
           </pre>
           <Editor
             autoFocus={true}
