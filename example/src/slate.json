@@ -1,0 +1,316 @@
+{
+  "object": "value",
+  "document": {
+    "object": "document",
+    "data": {},
+    "nodes": [
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {
+          "style": {
+            "textAlign": "justify",
+            "position": "relative"
+          }
+        },
+        "nodes": [
+          {
+            "object": "text",
+            "text": "Bold",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "Bold",
+                "data": {}
+              },
+              {
+                "object": "mark",
+                "type": "FontSize",
+                "data": {
+                  "className": "large"
+                }
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": " ",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "FontSize",
+                "data": {
+                  "className": "large"
+                }
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": "Left",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "FontSize",
+                "data": {
+                  "className": "large"
+                }
+              },
+              {
+                "object": "mark",
+                "type": "Color",
+                "data": {
+                  "className": "orange"
+                }
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": " Text",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "FontSize",
+                "data": {
+                  "className": "large"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {
+          "style": {
+            "textAlign": "center",
+            "position": "relative"
+          }
+        },
+        "nodes": [
+          {
+            "object": "text",
+            "text": "Italic ",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "Color",
+                "data": {
+                  "className": "red"
+                }
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": "Center",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "Italic",
+                "data": {}
+              },
+              {
+                "object": "mark",
+                "type": "Color",
+                "data": {
+                  "className": "red"
+                }
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": " Text",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "Color",
+                "data": {
+                  "className": "red"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {},
+        "nodes": [
+          {
+            "object": "text",
+            "text": "",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {},
+        "nodes": [
+          {
+            "object": "text",
+            "text": "",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {
+          "style": {
+            "textAlign": "right",
+            "position": "relative"
+          }
+        },
+        "nodes": [
+          {
+            "object": "text",
+            "text": "Underline ",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "Color",
+                "data": {
+                  "className": "blue"
+                }
+              },
+              {
+                "object": "mark",
+                "type": "Highlight",
+                "data": {
+                  "className": "blue"
+                }
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": "Right Text",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "Underline",
+                "data": {}
+              },
+              {
+                "object": "mark",
+                "type": "Color",
+                "data": {
+                  "className": "blue"
+                }
+              },
+              {
+                "object": "mark",
+                "type": "Highlight",
+                "data": {
+                  "className": "blue"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {},
+        "nodes": [
+          {
+            "object": "text",
+            "text": "Strikethrough ",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "Highlight",
+                "data": {
+                  "className": "green"
+                }
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": "Justify",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "StrikeThrough",
+                "data": {}
+              },
+              {
+                "object": "mark",
+                "type": "Highlight",
+                "data": {
+                  "className": "red"
+                }
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": " Text",
+            "marks": [
+              {
+                "object": "mark",
+                "type": "Highlight",
+                "data": {
+                  "className": "green"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {},
+        "nodes": [
+          {
+            "object": "text",
+            "text": "",
+            "marks": []
+          }
+        ]
+      },
+      {
+        "object": "block",
+        "type": "paragraph",
+        "data": {},
+        "nodes": [
+          {
+            "object": "text",
+            "text": "",
+            "marks": []
+          },
+          {
+            "object": "inline",
+            "type": "Link",
+            "data": {
+              "href": "https://ya.ru"
+            },
+            "nodes": [
+              {
+                "object": "text",
+                "text": "Sample Link",
+                "marks": []
+              }
+            ]
+          },
+          {
+            "object": "text",
+            "text": "",
+            "marks": []
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,3 +1,5 @@
+/// <reference path="types/slate.d.ts" />
+/// <reference path="types/slate-react.d.ts" />
 /**
  * Default CSS definition for typescript,
  * will be overridden with file-specific definitions by rollup

@@ -21,23 +21,44 @@
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build"
   },
-  "dependencies": {},
+  "dependencies": {
+
+  },
   "peerDependencies": {
+    "classnames": "^2.2.6",
+    "immutable": "3.8.2",
+    "prettier": "^1.17.0",
+    "prismjs": "^1.16.0",
     "prop-types": "^15.5.4",
     "react": "^15.0.0 || ^16.0.0",
-    "react-dom": "^15.0.0 || ^16.0.0"
+    "react-dom": "^15.0.0 || ^16.0.0",
+    "react-json-tree": "^0.11.2",
+    "slate": "0.46.1",
+    "slate-hyperprint": "git+https://github.com/zarv1k/slate-hyperprint.git#0.46.1",
+    "slate-hyperscript": "0.12.1",
+    "slate-react": "0.21.24"
   },
   "devDependencies": {
     "@svgr/rollup": "^2.4.1",
+    "@types/classnames": "^2.2.7",
     "@types/jest": "^23.1.5",
+    "@types/prismjs": "^1.16.0",
     "@types/react": "^16.3.13",
     "@types/react-dom": "^16.0.5",
+    "@types/react-json-tree": "^0.6.11",
+    "@types/slate": "0.44.5",
+    "@types/slate-react": "0.21.2",
     "babel-core": "^6.26.3",
     "babel-runtime": "^6.26.0",
+    "classnames": "^2.2.6",
     "cross-env": "^5.1.4",
     "gh-pages": "^1.2.0",
+    "immutable": "3.8.2",
+    "prettier": "^1.17.0",
+    "prismjs": "^1.16.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-json-tree": "^0.11.2",
     "react-scripts-ts": "^2.16.0",
     "rollup": "^0.62.0",
     "rollup-plugin-babel": "^3.0.7",
@@ -47,7 +68,11 @@
     "rollup-plugin-postcss": "^1.6.2",
     "rollup-plugin-typescript2": "^0.17.0",
     "rollup-plugin-url": "^1.4.0",
-    "typescript": "^2.8.3"
+    "slate": "0.46.1",
+    "slate-hyperprint": "git+https://github.com/zarv1k/slate-hyperprint.git#0.46.1",
+    "slate-hyperscript": "0.12.1",
+    "slate-react": "0.21.24",
+    "typescript": "3.3.3"
   },
   "files": [
     "dist"

@@ -1,0 +1,18 @@
+{
+  "parser": "typescript",
+  "printWidth": 100,
+  "singleQuote": true,
+  "semi": true,
+  "tabWidth": 2,
+  "bracketSpacing": false,
+  "overrides": [
+    {
+      "files": ["*.json", ".prettierrc", "*.xex"],
+      "options": {"parser": "json"}
+    },
+    {
+      "files": ["*.scss"],
+      "options": {"parser": "scss"}
+    }
+  ]
+}
