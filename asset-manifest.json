@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/@zarv1k/slate-dev-tools/static/css/main.87b76587.chunk.css",
+    "main.js": "/@zarv1k/slate-dev-tools/static/js/main.f8faf59d.chunk.js",
+    "main.js.map": "/@zarv1k/slate-dev-tools/static/js/main.f8faf59d.chunk.js.map",
+    "runtime~main.js": "/@zarv1k/slate-dev-tools/static/js/runtime~main.09297be2.js",
+    "runtime~main.js.map": "/@zarv1k/slate-dev-tools/static/js/runtime~main.09297be2.js.map",
+    "static/js/2.275f032f.chunk.js": "/@zarv1k/slate-dev-tools/static/js/2.275f032f.chunk.js",
+    "static/js/2.275f032f.chunk.js.map": "/@zarv1k/slate-dev-tools/static/js/2.275f032f.chunk.js.map",
+    "index.html": "/@zarv1k/slate-dev-tools/index.html",
+    "precache-manifest.3a599e0971b40185ab9cab04fbd395aa.js": "/@zarv1k/slate-dev-tools/precache-manifest.3a599e0971b40185ab9cab04fbd395aa.js",
+    "service-worker.js": "/@zarv1k/slate-dev-tools/service-worker.js",
+    "static/css/main.87b76587.chunk.css.map": "/@zarv1k/slate-dev-tools/static/css/main.87b76587.chunk.css.map",
+    "static/media/logo.svg": "/@zarv1k/slate-dev-tools/static/media/logo.5d5d9eef.svg"
+  }
+}
