@@ -9,12 +9,12 @@ import Prism from 'prismjs';
 import {SlateDevToolsInspect} from './constants';
 import SlateDevToolsContext from './devToolsContext';
 import {SlateDevToolsContextValue} from './interface';
+import {ReactComponent as Bug} from '../icons/other/bug.svg';
+import {ReactComponent as ChevronLeft} from '../icons/other/chevron-left.svg';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/components/prism-json.min';
 import './SlateDevTools.scss';
-import './DevToolsPrism.css';
-import Bug from "../icons/other/Bug";
-import ChevronLeft from "../icons/other/ChevronLeft";
+import './PrismTheme.scss';
 
 // import parseHyperscript from '../../SlateEditor/plugins/parseHyperscript';
 
@@ -82,7 +82,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
     if (!this.editor /* || !this.props.enabled*/) {
       return null;
     }
-    const classes = classNames('slate-editor-debug', {
+    const classes = classNames('slate-dev-tools', {
       readonly: this.props.readonly,
       collapsed: this.state.collapsed,
       'debug-json-tree': !this.context.raw
@@ -120,14 +120,14 @@ class SlateDevTools extends React.PureComponent<Props, State> {
               <Icon name={this.inspectIcon()} />
             </button>
             <button onMouseDown={this.toggle} className="debug-close">
-              <Icon name="close" />
+              <Icon name="cross" />
             </button>
           </div>
         </div>
         {this.renderRawContentState()}
         <button onMouseDown={this.toggle} className="hide-toggle">
-          <ChevronLeft />
-          <Bug />
+          <ChevronLeft viewBox="0 0 1792 1792" />
+          <Bug viewBox="0 0 1792 1792" />
         </button>
       </div>
     );
@@ -313,7 +313,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
     const currentState = this.context.inspect;
     return (
       <span>
-        Slate <span className="slate-editor-debug-id">{this.context.activeId || ''}</span>:{' '}
+        Slate <span className="slate-dev-tools-id">{this.context.activeId || ''}</span>:{' '}
         {currentState}
       </span>
     );
@@ -337,7 +337,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
     e.preventDefault();
     e.stopPropagation();
 
-    console.group(this.title());
+    console.group(`Slate ${this.context.activeId || ''}: ${this.context.inspect}`);
     console.log(this.getCurrentState());
     console.groupEnd();
   };

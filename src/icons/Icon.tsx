@@ -5,7 +5,7 @@ import './Icon.scss';
 export interface IconProps {
   name:
     | 'cast'
-    | 'close'
+    | 'cross'
     | 'code'
     | 'cubeOutline'
     | 'downloadOutline'
@@ -25,8 +25,10 @@ export default class Icon extends React.PureComponent<IconProps, {}> {
   public render() {
     const Ico = icons[this.props.name] || icons['close'];
     return (
-      <span className={`i ${this.props.name} ${this.props.className || ''}`}>
-        <img src={Ico} alt=""/>
+      <span
+        className={`slate-dev-tools-icon icon-${this.props.name} ${this.props.className || ''}`}
+      >
+        <img src={Ico} alt="" />
       </span>
     );
   }

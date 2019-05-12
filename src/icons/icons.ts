@@ -1,5 +1,5 @@
 import cast from './eva-icons/cast.svg';
-import close from './eva-icons/close.svg';
+import cross from './eva-icons/close.svg';
 import code from './eva-icons/code.svg';
 import cubeOutline from './eva-icons/cube-outline.svg';
 import downloadOutline from './eva-icons/download-outline.svg';
@@ -15,7 +15,7 @@ import iCursor from './other/i-cursor.svg';
 import curly from './other/curly.svg';
 
 export default {
-  close,
+  cross,
   code,
   cast,
   eye,

@@ -1,6 +1,6 @@
 {
   "name": "@zarv1k/slate-dev-tools",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "DevTools for SlateJS",
   "author": "zarv1k",
   "license": "MIT",
@@ -21,7 +21,8 @@
     "prepare": "yarn run build",
     "predeploy": "cd example && yarn install && yarn run build",
     "deploy": "gh-pages -d example/build",
-    "clean": "rm -rf ./dist ./example/build"
+    "clean": "rm -rf ./dist ./example/build",
+    "prettify": "prettier 'src/**/*.{ts,tsx,scss,json}' 'example/src/**/*.{ts,tsx,scss,json}'"
   },
   "peerDependencies": {
     "classnames": "^2.2.6",
@@ -51,7 +52,9 @@
     "classnames": "^2.2.6",
     "cross-env": "^5.2.0",
     "gh-pages": "^2.0.1",
+    "husky": "^2.2.0",
     "immutable": "3.8.2",
+    "lint-staged": "^8.1.6",
     "prettier": "^1.17.0",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
@@ -73,15 +76,14 @@
     "slate-react": "0.21.24",
     "typescript": "3.3.3"
   },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "slate",
-    "slate-react",
-    "dev-tools",
-    "hyperscript",
-    "hyperprint",
-    "slate-dev-tools"
-  ]
+  "files": ["dist"],
+  "keywords": ["slate", "slate-react", "dev-tools", "hyperscript", "hyperprint", "slate-dev-tools"],
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{ts,tsx,scss,json}": ["prettier --write", "git add"]
+  }
 }

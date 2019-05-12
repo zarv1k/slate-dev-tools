@@ -61,7 +61,12 @@ const DevToolsPlugin: DevToolsPluginCreator = (options: DevToolsPluginOptions = 
       return (
         <div style={{position: 'relative'}}>
           {next()}
-          <SlateDebugger ref={debuggerRef} editor={editor} debugId={debugId} shouldRenderId={shouldRenderId} />
+          <SlateDebugger
+            ref={debuggerRef}
+            editor={editor}
+            debugId={debugId}
+            shouldRenderId={shouldRenderId}
+          />
         </div>
       );
     }

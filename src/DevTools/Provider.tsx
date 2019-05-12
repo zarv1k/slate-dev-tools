@@ -60,7 +60,7 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
     const {...hyperprintOptions} = this.state.hyperprintOptions;
     delete editors[editorId];
     delete hyperprintOptions[editorId];
-    this.setState({activeId, editors, hyperprintOptions})
+    this.setState({activeId, editors, hyperprintOptions});
   };
 
   private changeInspect = (inspect: SlateDevToolsInspect) => {

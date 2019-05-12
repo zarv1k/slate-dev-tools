@@ -1,6 +1,6 @@
 import React from 'react';
-import {SlateDevToolsContextValue} from "./interface";
-import {SlateDevToolsInspect} from "./constants";
+import {SlateDevToolsContextValue} from './interface';
+import {SlateDevToolsInspect} from './constants';
 
 const SlateDevToolsContext: React.Context<SlateDevToolsContextValue> = React.createContext({
   editors: {},
@@ -11,9 +11,8 @@ const SlateDevToolsContext: React.Context<SlateDevToolsContextValue> = React.cre
   editorRemoved: () => {},
   inspectChanged: () => {},
   toggleRaw: () => {},
-  hyperprintOptions: {},
-  // valueToJSONOptions: {},
-  // editorRemoved: (editorId: string) => {}
+  hyperprintOptions: {}
+  // valueToJSONOptions: {}
 });
 
 export default SlateDevToolsContext;

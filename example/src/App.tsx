@@ -28,7 +28,7 @@ const App: React.FC = () => {
           <img src={logo} className="App-logo" alt="logo" />
           <a className="App-link" href="https://github.com/zarv1k/slate-dev-tools">
             <pre>
-              <code>@zarv1k/slate-dev-tools@0.1.0</code>
+              <code>@zarv1k/slate-dev-tools@0.1.1</code>
             </pre>
           </a>
           <Editor

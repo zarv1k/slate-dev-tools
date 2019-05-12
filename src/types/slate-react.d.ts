@@ -1,7 +1,6 @@
 import SlateReact from 'slate-react';
 import Slate from 'slate';
 declare module 'slate-react' {
-
   type SlateType = 'fragment' | 'html' | 'node' | 'rich' | 'text' | 'files';
 
   interface EventTransfer {

@@ -1,5 +1,5 @@
 @import 'variables.scss';
-.slate-editor-debug {
+.slate-dev-tools {
   position: fixed;
   bottom: 0;
   right: 0;
@@ -60,10 +60,10 @@
     .debug-title {
       padding-left: 10px;
       color: $font-color;
-      .slate-editor-debug-id {
+      .slate-dev-tools-id {
         font-weight: bold;
       }
-      .i {
+      .slate-dev-tools-icon {
         width: 22px;
         height: 22px;
         display: inline-block;
@@ -130,7 +130,7 @@
     left: -17px;
     z-index: 3;
     cursor: pointer;
-    transition: left .4s;
+    transition: left 0.2s;
     margin-right: -27px;
     &:hover {
       left: -41px;
