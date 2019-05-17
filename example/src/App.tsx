@@ -16,8 +16,8 @@ const defaultValue = (index: number, useLocalStorage = true): Value => {
   return Value.fromJSON(useLocalStorage && value ? JSON.parse(value) : doc);
 };
 
-// enable by default in production environment just for gh-pages
-const enabled = process.env.NODE_ENV === 'production';
+// enable by default for gh-pages
+const enabled = true;
 
 const Editor = withDevTools({enabled})(SlateReactEditor);
 

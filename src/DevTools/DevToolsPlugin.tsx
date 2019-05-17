@@ -7,7 +7,7 @@ import SlateDebugger from './SlateDebugger';
 import defaults from './defaults';
 
 const DevToolsPlugin: DevToolsPluginCreator = (options: DevToolsPluginOptions = defaults) => {
-  const {generateId, getIdCommand, hyperprintOptions, shouldRenderId, enabled} = {
+  const {generateId, getIdQuery, hyperprintOptions, shouldRenderId, enabled} = {
     ...defaults,
     ...options
   };
@@ -21,7 +21,7 @@ const DevToolsPlugin: DevToolsPluginCreator = (options: DevToolsPluginOptions = 
 
   return {
     onQuery: (command: Command, editor: Editor, next: () => void) => {
-      if (command.type === getIdCommand) {
+      if (command.type === getIdQuery) {
         return editorId;
       }
       if (command.type === QUERY_GET_HYPERPRINT_OPTIONS) {
@@ -30,9 +30,9 @@ const DevToolsPlugin: DevToolsPluginCreator = (options: DevToolsPluginOptions = 
       return next();
     },
     onConstruct: (editor: Editor, next: () => void) => {
-      const hasQuery = editor.hasQuery(getIdCommand);
+      const hasQuery = editor.hasQuery(getIdQuery);
       if (!hasQuery) {
-        editor.registerQuery(getIdCommand);
+        editor.registerQuery(getIdQuery);
       }
       editor.registerQuery(QUERY_GET_HYPERPRINT_OPTIONS);
       return next();

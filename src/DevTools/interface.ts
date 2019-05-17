@@ -10,7 +10,7 @@ export interface DevToolsPluginCreator {
 
 export interface DevToolsPluginOptions {
   enabled?: boolean;
-  getIdCommand?: string;
+  getIdQuery?: string;
   generateId?: () => string;
   shouldRenderId?: boolean;
   hyperprintOptions?: HyperprintOptions;
