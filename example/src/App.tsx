@@ -16,7 +16,10 @@ const defaultValue = (index: number, useLocalStorage = true): Value => {
   return Value.fromJSON(useLocalStorage && value ? JSON.parse(value) : doc);
 };
 
-const Editor = withDevTools()(SlateReactEditor);
+// enable by default in production environment just for gh-pages
+const enabled = process.env.NODE_ENV === 'production';
+
+const Editor = withDevTools({enabled})(SlateReactEditor);
 
 const App: React.FC = () => {
   const [value1, setValue1] = useState(defaultValue(1));
@@ -24,7 +27,7 @@ const App: React.FC = () => {
   const [value3, setValue3] = useState(defaultValue(3));
   const [value4, setValue4] = useState(defaultValue(4));
   return (
-    <Provider>
+    <Provider enabled={enabled}>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
