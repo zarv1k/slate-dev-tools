@@ -81,38 +81,38 @@ npm install --save-dev @zarv1k/slate-dev-tools
 
 If you don't want to use `withDevTools()` HOC for `Editor` component, you can use `DevToolsPlugin()` slate plugin:
 
-```tsx
-import React from 'react';
-
-import {Value, ValueJSON} from 'slate';
-import {Editor} from 'slate-react';
-
-import {Provider, DevToolsPlugin} from '@zarv1k/slate-dev-tools';
-import '@zarv1k/slate-dev-tools/dist/SlateDevTools.css';
-
-
-const plugins = [DevToolsPlugin()];
-
-const App: React.FC = () => {
-  const [value, setValue] = React.useState(Value.fromJSON(valueJSON));
-  return (
-    <Provider>
-      <Editor
-        value={value}
-        placeholder="Slate is awesome"
-        onChange={({value}) => setValue(value)}
-        plugins={plugins}
-      />
-    </Provider>
-  );
-};
-
-export default App;
-``` 
+    ```tsx
+    import React from 'react';
+    
+    import {Value, ValueJSON} from 'slate';
+    import {Editor} from 'slate-react';
+    
+    import {Provider, DevToolsPlugin} from '@zarv1k/slate-dev-tools';
+    import '@zarv1k/slate-dev-tools/dist/SlateDevTools.css';
+    
+    
+    const plugins = [DevToolsPlugin()];
+    
+    const App: React.FC = () => {
+      const [value, setValue] = React.useState(Value.fromJSON(valueJSON));
+      return (
+        <Provider>
+          <Editor
+            value={value}
+            placeholder="Slate is awesome"
+            onChange={({value}) => setValue(value)}
+            plugins={plugins}
+          />
+        </Provider>
+      );
+    };
+    
+    export default App;
+    ``` 
 
 ## TODO:
  - [ ] document all available options;
- - [ ] add `enabled` option, disable by default for `NODE_ENV === 'production'`;
+ - [x] add `enabled` option, disable by default for `NODE_ENV === 'production'`;
  - [ ] add `prop-types` for vanilla JS users;
  - [ ] add all options available in `Value.toJSON(options)` as `DevToolsPluginOptions.valueToJSONOptions`;
  - [ ] move entire codebase of [`slate-hyperprint`](https://github.com/zarv1k/slate-hyperprint/tree/0.46.1-dev) dependency into slate core package `slate-hypescript` as a [printer](https://github.com/ianstormtaylor/slate/pull/1902#issuecomment-434852988);

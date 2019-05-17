@@ -5,9 +5,11 @@ import {Editor as SlateReactEditor} from 'slate-react';
 import {Provider, withDevTools} from '@zarv1k/slate-dev-tools';
 import '@zarv1k/slate-dev-tools/dist/SlateDevTools.css';
 
-import doc from './default.json';
+import {version} from '../package.json';
 import logo from './logo.svg';
 import './App.css';
+
+import doc from './default.json';
 
 const defaultValue = (index: number, useLocalStorage = true): Value => {
   const value = localStorage.getItem(`@zarv1k/slate-dev-tools:editor${index}`);
@@ -28,7 +30,7 @@ const App: React.FC = () => {
           <img src={logo} className="App-logo" alt="logo" />
           <a className="App-link" href="https://github.com/zarv1k/slate-dev-tools">
             <pre>
-              <code>@zarv1k/slate-dev-tools@0.1.1</code>
+              <code>@zarv1k/slate-dev-tools</code>
             </pre>
           </a>
           <Editor
@@ -100,6 +102,9 @@ const App: React.FC = () => {
               Reset
             </button>
           </p>
+          <a className="App-version" href="https://www.npmjs.com/package/@zarv1k/slate-dev-tools">
+            v{version}
+          </a>
         </header>
       </div>
     </Provider>

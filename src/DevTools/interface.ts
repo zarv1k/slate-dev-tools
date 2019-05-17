@@ -9,6 +9,7 @@ export interface DevToolsPluginCreator {
 }
 
 export interface DevToolsPluginOptions {
+  enabled?: boolean;
   getIdCommand?: string;
   generateId?: () => string;
   shouldRenderId?: boolean;
@@ -27,6 +28,5 @@ export interface SlateDevToolsContextValue {
   toggleRaw: () => void;
   hyperprintOptions: {[editorId: string]: HyperprintOptions};
   // TODO: implement following options
-  // enabled?: boolean;
   // toJSONOptions?: ValueToJSONOptions;
 }

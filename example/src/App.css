@@ -20,6 +20,11 @@
 .App-link {
   color: #61dafb;
 }
+.App-version {
+  color: #61dafb;
+  font-size: small;
+  margin-bottom: 20px;
+}
 
 .App-editor {
   padding: 10px;

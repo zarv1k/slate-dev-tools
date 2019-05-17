@@ -1,21 +1,22 @@
 import {DevToolsPluginCreator, DevToolsPluginOptions} from './interface';
-import {Editor as SlateReactEditor} from 'slate-react';
+import {Editor as SlateReactEditor, EditorProps} from 'slate-react';
 import {Command, Editor} from 'slate';
-import {genKey} from './utils';
 import {QUERY_GET_EDITOR_ID, QUERY_GET_HYPERPRINT_OPTIONS} from './constants';
-import {EditorProps} from 'slate-react';
 import React from 'react';
 import SlateDebugger from './SlateDebugger';
+import defaults from './defaults';
 
-const DevToolsPlugin: DevToolsPluginCreator = (options: DevToolsPluginOptions = {}) => {
-  const {
-    generateId = genKey,
-    getIdCommand = QUERY_GET_EDITOR_ID,
-    hyperprintOptions = {},
-    shouldRenderId = true
-  } = options;
+const DevToolsPlugin: DevToolsPluginCreator = (options: DevToolsPluginOptions = defaults) => {
+  const {generateId, getIdCommand, hyperprintOptions, shouldRenderId, enabled} = {
+    ...defaults,
+    ...options
+  };
 
-  const editorId = generateId();
+  if (!enabled) {
+    return {};
+  }
+
+  const editorId = generateId!();
   const debuggerRef = React.createRef<SlateDebugger>();
 
   return {
@@ -54,9 +55,6 @@ const DevToolsPlugin: DevToolsPluginCreator = (options: DevToolsPluginOptions = 
       return change;
     },
     renderEditor: (props: EditorProps, editor: Editor, next: () => any) => {
-      // if (!this.enabled) {
-      //   return props.children;
-      // }
       const debugId = editor.query(QUERY_GET_EDITOR_ID);
       return (
         <div style={{position: 'relative'}}>

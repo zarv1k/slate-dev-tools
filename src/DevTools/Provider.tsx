@@ -6,11 +6,14 @@ import SlateDevTools from './SlateDevTools';
 import {QUERY_GET_HYPERPRINT_OPTIONS, SlateDevToolsInspect} from './constants';
 
 interface Props {
+  enabled: boolean;
   localStorageKey: string | null;
 }
 
 class Provider extends React.Component<Props, SlateDevToolsContextValue> {
+  public static displayName = 'SlateDevToolsProvider';
   public static defaultProps: Partial<Props> = {
+    enabled: process.env.NODE_ENV === 'development',
     localStorageKey: '@zarv1k/slate-dev-tools'
   };
   constructor(props: Props) {
@@ -27,9 +30,13 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
     };
   }
   render() {
+    const {enabled, children} = this.props;
+    if (!enabled) {
+      return children;
+    }
     return (
       <SlateDevToolsContext.Provider value={this.state}>
-        {this.props.children}
+        {children}
         <SlateDevTools />
       </SlateDevToolsContext.Provider>
     );
