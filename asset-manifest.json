@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/slate-dev-tools/static/css/main.4f569a79.chunk.css",
-    "main.js": "/slate-dev-tools/static/js/main.d26fb4b0.chunk.js",
-    "main.js.map": "/slate-dev-tools/static/js/main.d26fb4b0.chunk.js.map",
+    "main.css": "/slate-dev-tools/static/css/main.0adab2e1.chunk.css",
+    "main.js": "/slate-dev-tools/static/js/main.5509f064.chunk.js",
+    "main.js.map": "/slate-dev-tools/static/js/main.5509f064.chunk.js.map",
     "runtime~main.js": "/slate-dev-tools/static/js/runtime~main.4baf5dfc.js",
     "runtime~main.js.map": "/slate-dev-tools/static/js/runtime~main.4baf5dfc.js.map",
-    "static/js/2.8cff1dc1.chunk.js": "/slate-dev-tools/static/js/2.8cff1dc1.chunk.js",
-    "static/js/2.8cff1dc1.chunk.js.map": "/slate-dev-tools/static/js/2.8cff1dc1.chunk.js.map",
+    "static/js/2.e5e26acf.chunk.js": "/slate-dev-tools/static/js/2.e5e26acf.chunk.js",
+    "static/js/2.e5e26acf.chunk.js.map": "/slate-dev-tools/static/js/2.e5e26acf.chunk.js.map",
     "index.html": "/slate-dev-tools/index.html",
-    "precache-manifest.2b95df15097647932a8b718f22eb301e.js": "/slate-dev-tools/precache-manifest.2b95df15097647932a8b718f22eb301e.js",
+    "precache-manifest.522e309336fb4a330b1ed03b10c27032.js": "/slate-dev-tools/precache-manifest.522e309336fb4a330b1ed03b10c27032.js",
     "service-worker.js": "/slate-dev-tools/service-worker.js",
-    "static/css/main.4f569a79.chunk.css.map": "/slate-dev-tools/static/css/main.4f569a79.chunk.css.map",
+    "static/css/main.0adab2e1.chunk.css.map": "/slate-dev-tools/static/css/main.0adab2e1.chunk.css.map",
     "static/media/logo.svg": "/slate-dev-tools/static/media/logo.5d5d9eef.svg"
   }
 }
