@@ -90,6 +90,7 @@
         &:hover {
           opacity: 1;
         }
+        &.toggle-lock,
         &.toggle-sync {
           &.hide {
             display: none;

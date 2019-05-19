@@ -24,8 +24,6 @@ const Editor = withDevTools({enabled})(SlateReactEditor);
 const App: React.FC = () => {
   const [value1, setValue1] = useState(defaultValue(1));
   const [value2, setValue2] = useState(defaultValue(2));
-  const [value3, setValue3] = useState(defaultValue(3));
-  const [value4, setValue4] = useState(defaultValue(4));
   return (
     <Provider enabled={enabled}>
       <div className="App">
@@ -36,6 +34,8 @@ const App: React.FC = () => {
               <code>@zarv1k/slate-dev-tools</code>
             </pre>
           </a>
+        </header>
+        <section className="App-body">
           <Editor
             autoFocus={true}
             value={value1}
@@ -62,53 +62,25 @@ const App: React.FC = () => {
               setValue2(value);
             }}
           />
-          <Editor
-            autoFocus={true}
-            value={value3}
-            className="App-editor"
-            placeholder="Slate Editor 3"
-            onChange={({value}) => {
-              localStorage.setItem(
-                '@zarv1k/slate-dev-tools:editor3',
-                JSON.stringify(value.toJSON())
-              );
-              setValue3(value);
-            }}
-          />
-          <Editor
-            autoFocus={true}
-            value={value4}
-            className="App-editor"
-            placeholder="Slate Editor 4"
-            onChange={({value}) => {
-              localStorage.setItem(
-                '@zarv1k/slate-dev-tools:editor4',
-                JSON.stringify(value.toJSON())
-              );
-              setValue4(value);
-            }}
-          />
-          <p>
+          <p className="App-reset">
             <button
               className="btn btn-primary"
               onClick={() => {
                 localStorage.setItem('@zarv1k/slate-dev-tools:editor1', JSON.stringify(doc));
                 localStorage.setItem('@zarv1k/slate-dev-tools:editor2', JSON.stringify(doc));
-                localStorage.setItem('@zarv1k/slate-dev-tools:editor3', JSON.stringify(doc));
-                localStorage.setItem('@zarv1k/slate-dev-tools:editor4', JSON.stringify(doc));
                 setValue1(defaultValue(1, false));
                 setValue2(defaultValue(2, false));
-                setValue3(defaultValue(3, false));
-                setValue4(defaultValue(4, false));
               }}
             >
               Reset
             </button>
           </p>
+        </section>
+        <footer className="App-footer">
           <a className="App-version" href="https://www.npmjs.com/package/@zarv1k/slate-dev-tools">
             v{version}
           </a>
-        </header>
+        </footer>
       </div>
     </Provider>
   );

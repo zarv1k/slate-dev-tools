@@ -4,6 +4,8 @@ import SlateDevToolsContext from './devToolsContext';
 import {Editor} from 'slate';
 import SlateDevTools from './SlateDevTools';
 import {QUERY_GET_HYPERPRINT_OPTIONS, SlateDevToolsInspect} from './constants';
+import {Map} from 'immutable';
+import {EditorRecord} from './EditorRecord';
 
 interface Props {
   enabled: boolean;
@@ -19,9 +21,9 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
   constructor(props: Props) {
     super(props);
     this.state = {
-      editors: {},
-      editorSelected: this.activateEditor,
-      editorChanged: this.activateEditor,
+      editors: Map(),
+      editorSelected: this.onEditorSelected,
+      editorChanged: this.onEditorChanged,
       editorRemoved: this.removeEditor,
       inspectChanged: this.changeInspect,
       toggleRaw: this.toggleRaw,
@@ -42,13 +44,21 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
     );
   }
 
-  private activateEditor = (editorId: string, editor: Editor) => {
+  private onEditorSelected = (editorId: string, editor: Editor) => {
+    this.saveState(editorId, editor, true);
+  };
+
+  private onEditorChanged = (editorId: string, editor: Editor) => {
+    this.saveState(editorId, editor);
+  };
+
+  private saveState = (editorId: string, editor: Editor, selectOnly = false) => {
     const newState = {
       activeId: editorId,
-      editors: {
-        ...this.state.editors,
-        [editorId]: editor
-      },
+      editors: this.state.editors.set(
+        editorId,
+        this.ensureEditorRecord(editorId, editor, selectOnly)
+      ),
       hyperprintOptions: {
         ...this.state.hyperprintOptions
       }
@@ -105,6 +115,21 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
       raw: false
     };
   };
+
+  private ensureEditorRecord(editorId: string, editor: Editor, selectOnly = false): EditorRecord {
+    const record = this.state.editors.get(editorId);
+    if (!record) {
+      return new EditorRecord({
+        value: editor.value,
+        operations: editor.operations
+      });
+    } else if (!selectOnly) {
+      return record.withMutations((r: EditorRecord) =>
+        r.set('value', editor.value).set('operations', editor.operations)
+      ) as EditorRecord;
+    }
+    return record;
+  }
 }
 
 export default Provider;

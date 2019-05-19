@@ -1,5 +1,4 @@
 import React from 'react';
-import {Editor} from 'slate';
 import classNames from 'classnames';
 import JSONTree from 'react-json-tree';
 import Icon from '../icons/Icon';
@@ -8,13 +7,14 @@ import hyperprint from './hyperprint';
 import Prism from 'prismjs';
 import {SlateDevToolsInspect} from './constants';
 import SlateDevToolsContext from './devToolsContext';
-import {SlateDevToolsContextValue} from './interface';
+import {SlateDevToolsContextValue, EditorsMap} from './interface';
 import {ReactComponent as Bug} from '../icons/other/bug.svg';
 import {ReactComponent as ChevronLeft} from '../icons/other/chevron-left.svg';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/components/prism-json.min';
 import './SlateDevTools.scss';
 import './PrismTheme.scss';
+import {EditorRecord} from './EditorRecord';
 
 // import parseHyperscript from '../../SlateEditor/plugins/parseHyperscript';
 
@@ -29,8 +29,7 @@ interface State {
   collapsed: boolean;
   syncJsonTree: boolean;
   remountJsonTree: boolean;
-  // TODO: lockChange is broken - does not work at the moment
-  lockChange: Editor | null;
+  lockedEditors: EditorsMap | null;
 }
 
 class SlateDevTools extends React.PureComponent<Props, State> {
@@ -43,7 +42,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
       collapsed: false,
       syncJsonTree: false,
       remountJsonTree: false,
-      lockChange: null
+      lockedEditors: null
     };
   }
 
@@ -70,7 +69,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
       this.state.syncJsonTree &&
       this.editor &&
       nextContext.activeId &&
-      this.editor.value.equals(nextContext.editors[nextContext.activeId].value)
+      this.editor.value.equals(nextContext.editors.getIn([nextContext.activeId, 'value']))
     ) {
       this.setState({remountJsonTree: true}, () => {
         this.setState({remountJsonTree: false});
@@ -79,7 +78,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
   }
 
   public render() {
-    if (!this.editor /* || !this.props.enabled*/) {
+    if (!this.editor) {
       return null;
     }
     const classes = classNames('slate-dev-tools', {
@@ -96,7 +95,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
           </div>
           <div className="debug-actions">
             <button
-              title="Toggle ync JSONTree Node with Selection (it may degrade performance a lot)"
+              title="Auto-expand JSONTree node with selection"
               className={classNames({
                 'toggle-sync': true,
                 active: this.state.syncJsonTree,
@@ -107,16 +106,20 @@ class SlateDevTools extends React.PureComponent<Props, State> {
             >
               <Icon name="cast" />
             </button>
-            <button title="Lock/Unlock Current State" onMouseDown={this.toggleLockChanges}>
-              <Icon name={this.state.lockChange ? 'lock' : 'unlockOutline'} />
+            <button
+              title="Lock/unlock re-render changes from editors"
+              onMouseDown={this.toggleLockChanges}
+              className={classNames('toggle-lock', {active: this.state.lockedEditors})}
+            >
+              <Icon name={this.state.lockedEditors ? 'lock' : 'unlockOutline'} />
             </button>
-            <button title="Toggle view (JSONTree/raw)" onMouseDown={this.toggleRaw}>
+            <button title="Toggle view JSONTree/JSON" onMouseDown={this.toggleRaw}>
               <Icon name={this.context.raw ? 'curly' : 'menu2Outline'} />
             </button>
-            <button title="Console State" onMouseDown={this.consoleState}>
+            <button title="Console current state" onMouseDown={this.consoleState}>
               <Icon name="downloadOutline" />
             </button>
-            <button title="Switch State" onMouseDown={this.toggleState}>
+            <button title="Switch inspect mode" onMouseDown={this.toggleState}>
               <Icon name={this.inspectIcon()} />
             </button>
             <button onMouseDown={this.toggle} className="debug-close">
@@ -139,7 +142,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
         return 'code';
       case SlateDevToolsInspect.SELECTION:
         return 'iCursor';
-      case SlateDevToolsInspect.LAST_CHANGE:
+      case SlateDevToolsInspect.LAST_OPERATIONS:
         return 'swapOutline';
       case SlateDevToolsInspect.VALUE:
         return 'cubeOutline';
@@ -167,43 +170,44 @@ class SlateDevTools extends React.PureComponent<Props, State> {
     selection.addRange(range);
   };
 
-  private valueJSON = (stateChange: Editor | null) => {
-    const change = stateChange || this.editor;
+  private valueJSON = () => {
+    const change = this.editor;
     return change!.value.toJSON();
   };
 
-  private value = (stateChange: Editor | null) => {
-    const change = stateChange || this.editor;
+  private value = () => {
+    const change = this.editor;
     if (!this.context.raw) {
       return change!.value;
     }
-    return change!.value.toJS();
+    return change!.value;
   };
 
-  private selection = (stateChange: Editor | null) => {
-    const change = stateChange || this.editor;
+  private selection = () => {
+    const change = this.editor;
     if (!this.context.raw) {
       return change ? change.value.selection : [];
     }
     return change!.value.selection.toJS();
   };
 
-  private hyperprint = (stateChange: Editor | null) => {
-    const change = stateChange || this.editor;
+  private hyperprint = () => {
+    const change = this.editor;
 
     return change
-      ? hyperprint(change.value, this.context.hyperprintOptions[this.context.activeId!] || {})
+      ? hyperprint(change.value, this.context.hyperprintOptions[this.activeId!] || {})
       : '';
   };
 
-  private lastChange = (stateChange: Editor | null) => {
-    const change = stateChange || this.editor;
+  private lastOperations = () => {
+    const change = this.editor;
     if (!this.context.raw) {
-      return change;
+      return {
+        operations: change!.operations
+      };
     }
     return {
-      operations: change!.operations.toJS(),
-      value: change!.value.toJS()
+      operations: change!.operations.toJS()
     };
   };
 
@@ -272,7 +276,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
   };
 
   // private setChange = (e: React.ClipboardEvent) => {
-  //   const change = this.state.lockChange || this.editor;
+  //   const change = this.state.lockedEditors || this.editor;
   //   const setChange = this.getChangeSetter();
   //   const types = e.clipboardData.types;
   //
@@ -297,15 +301,15 @@ class SlateDevTools extends React.PureComponent<Props, State> {
   private getCurrentState = () => {
     switch (this.context.inspect) {
       case SlateDevToolsInspect.HYPERSCRIPT:
-        return this.hyperprint(this.state.lockChange);
+        return this.hyperprint();
       case SlateDevToolsInspect.SELECTION:
-        return this.selection(this.state.lockChange);
-      case SlateDevToolsInspect.LAST_CHANGE:
-        return this.lastChange(this.state.lockChange);
+        return this.selection();
+      case SlateDevToolsInspect.LAST_OPERATIONS:
+        return this.lastOperations();
       case SlateDevToolsInspect.VALUE:
-        return this.value(this.state.lockChange);
+        return this.value();
       default:
-        return this.valueJSON(this.state.lockChange);
+        return this.valueJSON();
     }
   };
 
@@ -329,7 +333,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
     e.preventDefault();
     e.stopPropagation();
     this.setState({
-      lockChange: !this.state.lockChange && this.editor ? this.editor : null
+      lockedEditors: !this.state.lockedEditors && this.context.editors ? this.context.editors : null
     });
   };
 
@@ -403,7 +407,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
         return false;
       case SlateDevToolsInspect.SELECTION:
         return this.shouldExpandSelection(keyPath);
-      case SlateDevToolsInspect.LAST_CHANGE:
+      case SlateDevToolsInspect.LAST_OPERATIONS:
         return this.shouldExpandLastChange(keyPath);
       case SlateDevToolsInspect.VALUE:
         return this.shouldExpandValueNode(keyPath);
@@ -418,9 +422,14 @@ class SlateDevTools extends React.PureComponent<Props, State> {
     this.setState({syncJsonTree: !this.state.syncJsonTree});
   };
 
-  private get editor(): Editor | undefined {
-    const {editors, activeId} = this.context;
-    return activeId ? editors[activeId] : undefined;
+  private get editor(): EditorRecord | undefined {
+    const {activeId} = this.context;
+    const editors = this.state.lockedEditors || this.context.editors;
+    return activeId ? editors.get(activeId) : undefined;
+  }
+
+  private get activeId(): string | undefined {
+    return this.context.activeId;
   }
 }
 

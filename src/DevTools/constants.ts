@@ -5,6 +5,6 @@ export enum SlateDevToolsInspect {
   VALUE_JSON = 'ValueJSON',
   VALUE = 'Value',
   SELECTION = 'Selection',
-  LAST_CHANGE = 'Last Change',
+  LAST_OPERATIONS = 'Last Operations',
   HYPERSCRIPT = 'Hyperscript'
 }

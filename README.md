@@ -138,7 +138,7 @@ npm install --save-dev @zarv1k/slate-dev-tools
 
 - [x] document all available options;
 - [x] add `enabled` option, disable by default for `NODE_ENV === 'production'`;
-- [ ] fix feature "lock/unlock state" - it is broken at the moment
+- [x] fix feature "lock/unlock state" - it is broken at the moment
 - [ ] add `prop-types` for vanilla JS users;
 - [ ] add all options available in `Value.toJSON(options)` as `DevToolsPluginOptions.valueToJSONOptions`;
 - [ ] move entire codebase of [`slate-hyperprint`](https://github.com/zarv1k/slate-hyperprint/tree/0.46.1-dev) dependency into slate core package `slate-hypescript` as a [printer](https://github.com/ianstormtaylor/slate/pull/1902#issuecomment-434852988);

@@ -1,9 +1,11 @@
 import React from 'react';
 import {SlateDevToolsContextValue} from './interface';
 import {SlateDevToolsInspect} from './constants';
+import {Map} from 'immutable';
+import {EditorRecord} from './EditorRecord';
 
 const SlateDevToolsContext: React.Context<SlateDevToolsContextValue> = React.createContext({
-  editors: {},
+  editors: Map<string, EditorRecord>(),
   inspect: SlateDevToolsInspect.VALUE_JSON,
   raw: false,
   editorSelected: () => {},
