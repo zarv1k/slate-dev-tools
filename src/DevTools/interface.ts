@@ -1,6 +1,10 @@
 import {Editor, Plugin} from 'slate';
 import {SlateDevToolsInspect} from './constants';
 import {HyperprintOptions} from 'slate-hyperprint';
+import {Map} from 'immutable';
+import {EditorRecord} from './EditorRecord';
+
+export type EditorsMap = Map<string, EditorRecord>;
 
 export interface DevToolsPlugin extends Plugin {}
 
@@ -18,7 +22,7 @@ export interface DevToolsPluginOptions {
 
 export interface SlateDevToolsContextValue {
   activeId?: string;
-  editors: {[editorId: string]: Editor}; // TODO: {operations, value, [something else from Editor]} object should be used instead of Editor
+  editors: EditorsMap;
   inspect: SlateDevToolsInspect;
   raw: boolean;
   editorSelected: (editorId: string, editor: Editor) => void;
