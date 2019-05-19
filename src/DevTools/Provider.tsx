@@ -116,7 +116,7 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
     };
   };
 
-  private ensureEditorRecord(editorId: string, editor: Editor, selectOnly = false) {
+  private ensureEditorRecord(editorId: string, editor: Editor, selectOnly = false): EditorRecord {
     const record = this.state.editors.get(editorId);
     if (!record) {
       return new EditorRecord({
@@ -126,7 +126,7 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
     } else if (!selectOnly) {
       return record.withMutations((r: EditorRecord) =>
         r.set('value', editor.value).set('operations', editor.operations)
-      );
+      ) as EditorRecord;
     }
     return record;
   }

@@ -69,7 +69,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
       this.state.syncJsonTree &&
       this.editor &&
       nextContext.activeId &&
-      this.editor.get('value').equals(nextContext.editors.getIn([nextContext.activeId, 'value']))
+      this.editor.value.equals(nextContext.editors.getIn([nextContext.activeId, 'value']))
     ) {
       this.setState({remountJsonTree: true}, () => {
         this.setState({remountJsonTree: false});
@@ -78,7 +78,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
   }
 
   public render() {
-    if (!this.editor /* || !this.props.enabled*/) {
+    if (!this.editor) {
       return null;
     }
     const classes = classNames('slate-dev-tools', {
@@ -172,30 +172,30 @@ class SlateDevTools extends React.PureComponent<Props, State> {
 
   private valueJSON = () => {
     const change = this.editor;
-    return change!.get('value').toJSON();
+    return change!.value.toJSON();
   };
 
   private value = () => {
     const change = this.editor;
     if (!this.context.raw) {
-      return change!.get('value');
+      return change!.value;
     }
-    return change!.get('value');
+    return change!.value;
   };
 
   private selection = () => {
     const change = this.editor;
     if (!this.context.raw) {
-      return change ? change.get('value').selection : [];
+      return change ? change.value.selection : [];
     }
-    return change!.get('value').selection.toJS();
+    return change!.value.selection.toJS();
   };
 
   private hyperprint = () => {
     const change = this.editor;
 
     return change
-      ? hyperprint(change.get('value'), this.context.hyperprintOptions[this.activeId!] || {})
+      ? hyperprint(change.value, this.context.hyperprintOptions[this.activeId!] || {})
       : '';
   };
 
@@ -203,11 +203,11 @@ class SlateDevTools extends React.PureComponent<Props, State> {
     const change = this.editor;
     if (!this.context.raw) {
       return {
-        operations: change!.get('operations')
+        operations: change!.operations
       };
     }
     return {
-      operations: change!.get('operations').toJS()
+      operations: change!.operations.toJS()
     };
   };
 
@@ -356,7 +356,7 @@ class SlateDevTools extends React.PureComponent<Props, State> {
 
   private shouldExpandDocumentPath = (keyPath: Array<string | number>) => {
     const path: Immutable.List<number> | false | null = this.editor
-      ? (this.editor.get('value').selection.anchor.path as Immutable.List<number> | null)
+      ? (this.editor.value.selection.anchor.path as Immutable.List<number> | null)
       : false;
     if (!path) {
       return false;
