@@ -9,7 +9,7 @@ import {SlateDevToolsInspect} from './constants';
 import SlateDevToolsContext from './devToolsContext';
 import {SlateDevToolsContextValue, EditorsMap} from './interface';
 import {ReactComponent as Bug} from '../icons/other/bug.svg';
-import {ReactComponent as ChevronLeft} from '../icons/other/chevron-left.svg';
+import {ReactComponent as ArrowLeft} from '../icons/eva-icons/arrow-ios-back-outline.svg';
 import 'prismjs/components/prism-jsx.min';
 import 'prismjs/components/prism-json.min';
 import './SlateDevTools.scss';
@@ -129,8 +129,8 @@ class SlateDevTools extends React.PureComponent<Props, State> {
         </div>
         {this.renderRawContentState()}
         <button onMouseDown={this.toggle} className="hide-toggle">
-          <ChevronLeft viewBox="0 0 1792 1792" />
-          <Bug viewBox="0 0 1792 1792" />
+          <ArrowLeft />
+          <Bug />
         </button>
       </div>
     );

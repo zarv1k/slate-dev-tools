@@ -11,7 +11,7 @@ import menu2Outline from './eva-icons/menu-2-outline.svg';
 import swapOutline from './eva-icons/swap-outline.svg';
 import unlockOutline from './eva-icons/unlock-outline.svg';
 
-import iCursor from './other/i-cursor.svg';
+import iCursor from './other/cursor.svg';
 import curly from './other/curly.svg';
 
 export default {
