@@ -6,7 +6,7 @@ import React from 'react';
 import SlateDebugger from './SlateDebugger';
 import defaults from './defaults';
 
-const DevToolsPlugin: DevToolsPluginCreator = (options: DevToolsPluginOptions = defaults) => {
+const DevToolsPlugin: DevToolsPluginCreator = (options: Partial<DevToolsPluginOptions> = {}) => {
   const {generateId, getIdQuery, hyperprintOptions, shouldRenderId, enabled} = {
     ...defaults,
     ...options

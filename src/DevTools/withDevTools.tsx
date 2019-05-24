@@ -4,12 +4,12 @@ import {DevToolsPluginOptions} from './interface';
 import DevToolsPlugin from './DevToolsPlugin';
 import defaults from './defaults';
 
-const withDevTools = (options: DevToolsPluginOptions = defaults) => (
+const withDevTools = (options: Partial<DevToolsPluginOptions> = {}) => (
   editor: React.ComponentClass<EditorProps>
 ): React.ComponentClass<EditorProps> => {
-  const {enabled} = options;
+  const opts: DevToolsPluginOptions = {...defaults, ...options};
 
-  if (!enabled) {
+  if (!opts.enabled) {
     return editor;
   }
 
@@ -18,9 +18,8 @@ const withDevTools = (options: DevToolsPluginOptions = defaults) => (
     private readonly plugins: Plugin[];
     constructor(props: EditorProps) {
       super(props);
-      this.plugins = props.plugins || [];
-
-      this.plugins.push(DevToolsPlugin(options));
+      const plugins = props.plugins || [];
+      this.plugins = [...plugins, DevToolsPlugin(opts)];
     }
     render() {
       return <SlateReactEditor {...this.props} plugins={this.plugins} />;
