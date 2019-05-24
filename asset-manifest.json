@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/slate-dev-tools/static/css/main.f304298a.chunk.css",
-    "main.js": "/slate-dev-tools/static/js/main.e5c95a03.chunk.js",
-    "main.js.map": "/slate-dev-tools/static/js/main.e5c95a03.chunk.js.map",
+    "main.js": "/slate-dev-tools/static/js/main.c6e08588.chunk.js",
+    "main.js.map": "/slate-dev-tools/static/js/main.c6e08588.chunk.js.map",
     "runtime~main.js": "/slate-dev-tools/static/js/runtime~main.4baf5dfc.js",
     "runtime~main.js.map": "/slate-dev-tools/static/js/runtime~main.4baf5dfc.js.map",
     "static/js/2.6f24088e.chunk.js": "/slate-dev-tools/static/js/2.6f24088e.chunk.js",
     "static/js/2.6f24088e.chunk.js.map": "/slate-dev-tools/static/js/2.6f24088e.chunk.js.map",
     "index.html": "/slate-dev-tools/index.html",
-    "precache-manifest.d8dee9505b51be435de5b12276b86895.js": "/slate-dev-tools/precache-manifest.d8dee9505b51be435de5b12276b86895.js",
+    "precache-manifest.f151d9407c361fc541850d904d8b787b.js": "/slate-dev-tools/precache-manifest.f151d9407c361fc541850d904d8b787b.js",
     "service-worker.js": "/slate-dev-tools/service-worker.js",
     "static/css/main.f304298a.chunk.css.map": "/slate-dev-tools/static/css/main.f304298a.chunk.css.map",
     "static/media/logo.svg": "/slate-dev-tools/static/media/logo.5d5d9eef.svg"

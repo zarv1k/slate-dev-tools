@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "a86d37b975329916dd0eaeed54a4abf6",
+    "revision": "3715f58cef0043b5f6c4fda65fed39cf",
     "url": "/slate-dev-tools/index.html"
   },
   {
-    "revision": "38025b4e4a296705f17d",
+    "revision": "f4f306dd4061011ad1dc",
     "url": "/slate-dev-tools/static/css/main.f304298a.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/slate-dev-tools/static/js/2.6f24088e.chunk.js"
   },
   {
-    "revision": "38025b4e4a296705f17d",
-    "url": "/slate-dev-tools/static/js/main.e5c95a03.chunk.js"
+    "revision": "f4f306dd4061011ad1dc",
+    "url": "/slate-dev-tools/static/js/main.c6e08588.chunk.js"
   },
   {
     "revision": "a96d9d3d66463682e365",
