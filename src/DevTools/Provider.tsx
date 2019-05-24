@@ -24,9 +24,9 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
       editors: Map(),
       editorSelected: this.onEditorSelected,
       editorChanged: this.onEditorChanged,
-      editorRemoved: this.removeEditor,
-      inspectChanged: this.changeInspect,
-      toggleRaw: this.toggleRaw,
+      editorRemoved: this.onEditorRemoved,
+      inspectChanged: this.onInspectModeChanged,
+      toggleRaw: this.onRawChanged,
       hyperprintOptions: {},
       ...this.getDefaultModes()
     };
@@ -71,22 +71,22 @@ class Provider extends React.Component<Props, SlateDevToolsContextValue> {
     this.setState(newState);
   };
 
-  private removeEditor = (editorId: string) => {
-    const activeId = editorId !== this.state.activeId ? this.state.activeId : undefined;
-    const {...editors} = this.state.editors;
+  private onEditorRemoved = (editorId: string) => {
+    const activeId =
+      editorId !== this.state.activeId ? this.state.activeId : this.state.editors.keySeq().first();
+    const editors = this.state.editors.delete(editorId);
     const {...hyperprintOptions} = this.state.hyperprintOptions;
-    delete editors[editorId];
     delete hyperprintOptions[editorId];
     this.setState({activeId, editors, hyperprintOptions});
   };
 
-  private changeInspect = (inspect: SlateDevToolsInspect) => {
+  private onInspectModeChanged = (inspect: SlateDevToolsInspect) => {
     this.setState({inspect}, () => {
       this.saveModes();
     });
   };
 
-  private toggleRaw = () => {
+  private onRawChanged = () => {
     const {raw} = this.state;
     this.setState({raw: !raw}, () => {
       this.saveModes();
