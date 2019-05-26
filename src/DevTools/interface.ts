@@ -1,6 +1,6 @@
 import {Editor, Plugin} from 'slate';
 import {SlateDevToolsInspect} from './constants';
-import {HyperprintOptions} from 'slate-hyperprint';
+import {HyperprintOptions} from '@zarv1k/slate-hyperprint';
 import {Map} from 'immutable';
 import {EditorRecord} from './EditorRecord';
 

@@ -1,4 +1,4 @@
-import print, {HyperprintOptions} from 'slate-hyperprint';
+import print, {HyperprintOptions} from '@zarv1k/slate-hyperprint';
 import {Value} from 'slate';
 
 const defaultOptions: HyperprintOptions = {
