@@ -1,6 +1,6 @@
 {
   "name": "@zarv1k/slate-dev-tools",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "description": "DevTools for SlateJS",
   "author": "zarv1k",
   "license": "MIT",
@@ -32,10 +32,10 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-json-tree": "^0.11.2",
-    "slate": "^0.46.1",
-    "slate-hyperprint": "git+https://github.com/zarv1k/slate-hyperprint.git#0.46.1",
-    "slate-hyperscript": "^0.12.1",
-    "slate-react": "^0.21.24"
+    "slate": "^0.47.3",
+    "slate-hyperprint": "git+https://github.com/zarv1k/slate-hyperprint.git#0.47.3",
+    "slate-hyperscript": "^0.13.3",
+    "slate-react": "^0.22.3"
   },
   "devDependencies": {
     "@svgr/rollup": "^4.2.0",
@@ -70,10 +70,10 @@
     "rollup-plugin-sass": "^1.2.2",
     "rollup-plugin-typescript2": "^0.21.0",
     "rollup-plugin-url": "^2.2.1",
-    "slate": "0.46.1",
-    "slate-hyperprint": "git+https://github.com/zarv1k/slate-hyperprint.git#0.46.1",
-    "slate-hyperscript": "0.12.1",
-    "slate-react": "0.21.24",
+    "slate": "^0.47.3",
+    "slate-hyperprint": "git+https://github.com/zarv1k/slate-hyperprint.git#0.47.3",
+    "slate-hyperscript": "^0.13.3",
+    "slate-react": "^0.22.3",
     "typescript": "3.3.3"
   },
   "files": ["dist"],

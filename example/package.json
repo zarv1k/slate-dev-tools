@@ -1,7 +1,7 @@
 {
   "name": "@zarv1k/slate-dev-tools-example",
   "homepage": "https://zarv1k.github.io/slate-dev-tools",
-  "version": "0.2.2",
+  "version": "0.3.0",
   "license": "MIT",
   "private": true,
   "dependencies": {
