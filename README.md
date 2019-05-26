@@ -136,13 +136,9 @@ npm install --save-dev @zarv1k/slate-dev-tools
 
 ## TODO:
 
-- [x] document all available options;
-- [x] add `enabled` option, disable by default for `NODE_ENV === 'production'`;
-- [x] fix feature "lock/unlock state" - it is broken at the moment
 - [ ] add `prop-types` for vanilla JS users;
-- [ ] add all options available in `Value.toJSON(options)` as `DevToolsPluginOptions.valueToJSONOptions`;
-- [ ] move entire codebase of [`slate-hyperprint`](https://github.com/zarv1k/slate-hyperprint/tree/0.46.1-dev) dependency into slate core package `slate-hypescript` as a [printer](https://github.com/ianstormtaylor/slate/pull/1902#issuecomment-434852988);
-- [ ] replace `Editor` (aka Last Change) in dev tools with `Value` and `operations`
-- [ ] add new inspect modes, e.g. applied Plugins per Editor, registered commands, queries, middlewares and many for Schema;
+- [ ] add all options available in `Value.toJSON(options)` as `DevToolsPluginOptions.valueToJSONOptions` and make these options editable in UI;
+- [ ] move entire codebase of [`slate-hyperprint`](https://github.com/zarv1k/slate-hyperprint/tree/0.47.3-dev) dependency into slate core package `slate-hypescript` as a [printer](https://github.com/ianstormtaylor/slate/pull/1902#issuecomment-434852988);
+- [ ] add new inspect modes, e.g. applied Plugins per Editor, registered commands, queries, middlewares and schema rules;
 - [ ] make it possible to set Editor Value from dev tools UI either with ValueJSON or with Hyperscript;
 - [ ] make it possible to run Editor commands and queries from dev tools UI;
