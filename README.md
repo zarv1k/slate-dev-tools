@@ -138,7 +138,7 @@ npm install --save-dev @zarv1k/slate-dev-tools
 
 - [ ] add `prop-types` for vanilla JS users;
 - [ ] add all options available in `Value.toJSON(options)` as `DevToolsPluginOptions.valueToJSONOptions` and make these options editable in UI;
-- [ ] move entire codebase of [`slate-hyperprint`](https://github.com/zarv1k/slate-hyperprint/tree/0.47.3-dev) dependency into slate core package `slate-hypescript` as a [printer](https://github.com/ianstormtaylor/slate/pull/1902#issuecomment-434852988);
+- [ ] move entire codebase of [`@zarv1k/slate-hyperprint`](https://github.com/zarv1k/slate-hyperprint) dependency into slate core package `slate-hypescript` as a [printer](https://github.com/ianstormtaylor/slate/pull/1902#issuecomment-434852988);
 - [ ] add new inspect modes, e.g. applied Plugins per Editor, registered commands, queries, middlewares and schema rules;
 - [ ] make it possible to set Editor Value from dev tools UI either with ValueJSON or with Hyperscript;
 - [ ] make it possible to run Editor commands and queries from dev tools UI;
