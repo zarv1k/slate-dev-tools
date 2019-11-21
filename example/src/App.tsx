@@ -36,32 +36,36 @@ const App: React.FC = () => {
           </a>
         </header>
         <section className="App-body">
-          <Editor
-            autoFocus={true}
-            value={value1}
-            className="App-editor"
-            placeholder="Slate Editor 1"
-            onChange={({value}) => {
-              localStorage.setItem(
-                '@zarv1k/slate-dev-tools:editor1',
-                JSON.stringify(value.toJSON())
-              );
-              setValue1(value);
-            }}
-          />
-          <Editor
-            autoFocus={true}
-            value={value2}
-            className="App-editor"
-            placeholder="Slate Editor 2"
-            onChange={({value}) => {
-              localStorage.setItem(
-                '@zarv1k/slate-dev-tools:editor2',
-                JSON.stringify(value.toJSON())
-              );
-              setValue2(value);
-            }}
-          />
+          <div style={{position: 'relative'}}>
+            <Editor
+              autoFocus={true}
+              value={value1}
+              className="App-editor"
+              placeholder="Slate Editor 1"
+              onChange={({value}) => {
+                localStorage.setItem(
+                  '@zarv1k/slate-dev-tools:editor1',
+                  JSON.stringify(value.toJSON())
+                );
+                setValue1(value);
+              }}
+            />
+          </div>
+          <div style={{position: 'relative'}}>
+            <Editor
+              autoFocus={true}
+              value={value2}
+              className="App-editor"
+              placeholder="Slate Editor 2"
+              onChange={({value}) => {
+                localStorage.setItem(
+                  '@zarv1k/slate-dev-tools:editor2',
+                  JSON.stringify(value.toJSON())
+                );
+                setValue2(value);
+              }}
+            />
+          </div>
           <p className="App-reset">
             <button
               className="btn btn-primary"

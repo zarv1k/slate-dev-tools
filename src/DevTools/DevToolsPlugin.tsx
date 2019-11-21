@@ -57,7 +57,7 @@ const DevToolsPlugin: DevToolsPluginCreator = (options: Partial<DevToolsPluginOp
     renderEditor: (props: EditorProps, editor: Editor, next: () => any) => {
       const debugId = editor.query(QUERY_GET_EDITOR_ID);
       return (
-        <div style={{position: 'relative'}}>
+        <>
           {next()}
           <SlateDebugger
             ref={debuggerRef}
@@ -65,7 +65,7 @@ const DevToolsPlugin: DevToolsPluginCreator = (options: Partial<DevToolsPluginOp
             debugId={debugId}
             shouldRenderId={shouldRenderId}
           />
-        </div>
+        </>
       );
     }
   };
