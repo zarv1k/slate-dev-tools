@@ -1,5 +1,5 @@
 import React from 'react';
-import {SlateDevToolsContextValue} from './interface';
+import {ProviderProps, SlateDevToolsContextValue} from './interface';
 import SlateDevToolsContext from './devToolsContext';
 import {Editor} from 'slate';
 import SlateDevTools from './SlateDevTools';
@@ -7,10 +7,7 @@ import {QUERY_GET_HYPERPRINT_OPTIONS, SlateDevToolsInspect} from './constants';
 import {Map} from 'immutable';
 import {EditorRecord} from './EditorRecord';
 
-interface Props {
-  enabled: boolean;
-  localStorageKey: string | null;
-}
+type Props = ProviderProps;
 
 class Provider extends React.Component<Props, SlateDevToolsContextValue> {
   public static displayName = 'SlateDevToolsProvider';

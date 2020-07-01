@@ -34,3 +34,8 @@ export interface SlateDevToolsContextValue {
   // TODO: implement following options
   // toJSONOptions?: ValueToJSONOptions;
 }
+
+export interface ProviderProps {
+  enabled?: boolean;
+  localStorageKey?: string | null;
+}

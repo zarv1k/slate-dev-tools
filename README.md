@@ -41,7 +41,7 @@ npm install --save-dev @zarv1k/slate-dev-tools
    import {Editor as SlateReactEditor} from 'slate-react';
 
    import {Provider, withDevTools} from '@zarv1k/slate-dev-tools';
-   import '@zarv1k/slate-dev-tools/dist/SlateDevTools.css';
+   import '@zarv1k/slate-dev-tools/lib/SlateDevTools.css';
 
    const valueJSON: ValueJSON = {
      object: 'value',
@@ -94,7 +94,7 @@ npm install --save-dev @zarv1k/slate-dev-tools
    import {Editor} from 'slate-react';
 
    import {Provider, DevToolsPlugin} from '@zarv1k/slate-dev-tools';
-   import '@zarv1k/slate-dev-tools/dist/SlateDevTools.css';
+   import '@zarv1k/slate-dev-tools/lib/SlateDevTools.css';
 
    const plugins = [DevToolsPlugin()];
 

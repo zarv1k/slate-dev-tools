@@ -3,7 +3,7 @@ import {Value} from 'slate';
 import {Editor as SlateReactEditor} from 'slate-react';
 
 import {Provider, withDevTools} from '@zarv1k/slate-dev-tools';
-import '@zarv1k/slate-dev-tools/dist/SlateDevTools.css';
+import '@zarv1k/slate-dev-tools/lib/SlateDevTools.css';
 
 import {version} from '../package.json';
 import logo from './logo.svg';
