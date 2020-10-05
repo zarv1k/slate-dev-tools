@@ -23,7 +23,7 @@
       visibility: hidden;
     }
     .hide-toggle {
-      display: block;
+      display: flex;
     }
     box-shadow: none;
   }
@@ -124,7 +124,7 @@
     padding: $base-padding/5;
     background-color: #2a2f3a;
     color: #fff;
-    top: 50%;
+    top: 15vh;
     left: -22px;
     z-index: 3;
     cursor: pointer;
