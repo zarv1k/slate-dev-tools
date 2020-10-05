@@ -1,22 +1,22 @@
 {
   "files": {
-    "main.css": "/slate-dev-tools/static/css/main.b02b6f6c.chunk.css",
-    "main.js": "/slate-dev-tools/static/js/main.4b181e1c.chunk.js",
-    "main.js.map": "/slate-dev-tools/static/js/main.4b181e1c.chunk.js.map",
+    "main.css": "/slate-dev-tools/static/css/main.4baf6da5.chunk.css",
+    "main.js": "/slate-dev-tools/static/js/main.6f148b17.chunk.js",
+    "main.js.map": "/slate-dev-tools/static/js/main.6f148b17.chunk.js.map",
     "runtime-main.js": "/slate-dev-tools/static/js/runtime-main.72635211.js",
     "runtime-main.js.map": "/slate-dev-tools/static/js/runtime-main.72635211.js.map",
     "static/js/2.41920e1d.chunk.js": "/slate-dev-tools/static/js/2.41920e1d.chunk.js",
     "static/js/2.41920e1d.chunk.js.map": "/slate-dev-tools/static/js/2.41920e1d.chunk.js.map",
     "index.html": "/slate-dev-tools/index.html",
-    "precache-manifest.144d8fab7d57d9038418ac1b00f4fabe.js": "/slate-dev-tools/precache-manifest.144d8fab7d57d9038418ac1b00f4fabe.js",
+    "precache-manifest.587571c244a355594f456d818bbaea30.js": "/slate-dev-tools/precache-manifest.587571c244a355594f456d818bbaea30.js",
     "service-worker.js": "/slate-dev-tools/service-worker.js",
-    "static/css/main.b02b6f6c.chunk.css.map": "/slate-dev-tools/static/css/main.b02b6f6c.chunk.css.map",
+    "static/css/main.4baf6da5.chunk.css.map": "/slate-dev-tools/static/css/main.4baf6da5.chunk.css.map",
     "static/media/logo.svg": "/slate-dev-tools/static/media/logo.5d5d9eef.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.72635211.js",
     "static/js/2.41920e1d.chunk.js",
-    "static/css/main.b02b6f6c.chunk.css",
-    "static/js/main.4b181e1c.chunk.js"
+    "static/css/main.4baf6da5.chunk.css",
+    "static/js/main.6f148b17.chunk.js"
   ]
 }
